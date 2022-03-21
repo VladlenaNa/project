@@ -8,19 +8,13 @@ body {
 }
 .menu_bar {
     list-style-type: none;
-    margin: 0 0;
-    padding: 0;
-    top: 0;
-    left: 0;
     background-color: #050e24;
-    width: 1432px;
+    width: 100%;
     height: 80px;
     display: flex;
-    position: relative;
     justify-content: space-between;
     align-items: center;
 }
-
 .navigation {
     display: flex;
     flex-wrap: nowrap;
@@ -36,38 +30,41 @@ body {
     flex-direction: row;
     list-style: none;
 }
-
 .navigation ul{
+    font-weight: 600;
     display: flex;
     flex-direction: row;
     list-style: none;
 }
-
 .nav a {
     text-decoration: none;
+    font-weight: 600;
     color: white;
     font-size: 24;
     padding-right: 20px;
 }
-
 .navigation a{
     text-decoration: none;
     color: white;
     font-size: 24;
 }
-
 .buttons a{
     margin-left: 20px;
 }
-.bg_white.wrapper {
+.wrapper_bg_white {
     background-color: white;
+    width: 100%;
+    height: auto;
+    padding-bottom: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
 }
 .wrapper {
     background-color: #0E121D;
     width: 100%;
     height: auto;
-    margin: 0;
-    left: 0;
     padding-bottom: 300px;
     display: flex;
     flex-wrap: wrap;
@@ -92,9 +89,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 0 auto; 
 }
-
 .search_content h2 {
     color:white;
 }
@@ -107,7 +102,6 @@ body {
     width: 800px;
     height: 64px;
 }
-
 .input_name, .search_button {
     border: none;
     outline: none;
@@ -126,7 +120,7 @@ body {
     position: absolute;
     top: 7px;
     right: 7px;
-    background: #5690e6;
+    background: #01b4e4;
     cursor: pointer;
     color: #08204F;
 }
@@ -136,7 +130,6 @@ body {
     font-size: 20px;
     font-weight: bold;
 }
-
 .line {
     border-bottom: 0.5px solid white;
     margin-left: 70px;
@@ -144,7 +137,6 @@ body {
     margin-top: 22px;
 }
 .popular_wrapper {
-    margin: 0;
     padding-top: 30px;
     padding-bottom: 20px;
     width: 100%;
@@ -158,16 +150,14 @@ body {
     display: flex;
     justify-content: center;
     align-content: center;
-    margin: 0 auto;
+    margin-top: 20px;
     align-items: center;
 }
-
 .popular_header h2 {
     margin-left: 70px;
     font-size: 20px;
 }
-
-.cards figcaption{
+.cards h2{
     text-align: center;
     font-weight: bold;
     font-size: 1em;
@@ -176,7 +166,6 @@ body {
 .film_icon {
     border-radius: 8px;
 }
-
 .recent_trailers {
     width: 100%;
     margin-left: 70px;
@@ -189,13 +178,11 @@ body {
     background-size: contain; 
     background-color: rgba(20, 20, 54, 0.445);
 }
-
 .recent_trailers h2 {
     margin-left: 70px;
     font-size: 20px;
     color: white;
 }
-
 .trailers_content {
     display: flex;
     justify-content: center;
@@ -205,16 +192,12 @@ body {
     padding-top: 10px;
     padding-bottom: 10px;
 }
-.trailer figcaption {
+.trailer h2 {
     text-align: center;
     font-weight: bold;
     font-size: 1em;
     color: white;
 }
-.dead {
-    position: relative;
-}
-
 .footer {
     box-sizing: border-box;
     display: flex;
@@ -231,7 +214,7 @@ body {
     background-color: #080D1D;
     color: #fff;
 }
-.logo_footer {
+.footer_logo {
     margin-right: 20px;
 }
 .footer_content {
@@ -284,14 +267,13 @@ body {
     text-align: center;
 }
 .button_join a {
+    text-decoration: none;
     font-weight: bold;
     white-space: normal;
     font-size: 1.2em;
     color:#213374;
 }
-
 .wrapper_tmdb {
-    position: relative;
     background-color: #0E121D;
     width: 100%;
     height: auto;
@@ -303,14 +285,7 @@ body {
     align-items: flex-start;
     justify-content: center;
 }
-.tmdb_content {
-    width: 100%;
-    top: 0;
-    display: block;
-    left: 0;
-    margin: 0;
-    padding: 0;
-}
+
 .info_tmdb h2,h4 {
     color:white;
     font-size: 30px;
@@ -335,7 +310,6 @@ body {
     margin: 0 auto;
     text-align: center;
 }
-
 .border_advantages li{
     list-style: none;
     padding: 8px 20px;
@@ -384,7 +358,6 @@ body {
 .round_staat { 
     background-color: #253c91;
     width: 100px;
-    position: relative;
     height: 100px;
     border-radius: 50px;
     text-align: center;
@@ -462,11 +435,12 @@ body {
     border-radius: 8px 8px 0 0;
     color: white
 }
-.FAQ_column h2, h3 {
+.FAQ_column h2{
     color: black;
 }
 .FAQ_column h3 {
     font-size: 16px;
+    color:black;
     border-bottom: 1px solid rgb(201, 198, 198);
     padding-bottom: 5px;
 }
@@ -479,6 +453,7 @@ body {
     margin-left: 50px;
 }
 .FAQ_column p {
+    color: black;
     font-size: 16px;
 }
 
@@ -504,4 +479,151 @@ body {
 }
 .logo {
     padding: 20px;
+}
+.films_title h2 {
+    color: white;
+}
+.filter {
+    background-color: white;
+    margin-top: 20px;
+    padding: 2px 50px;
+    border-radius: 8px;
+    border: 1px solid #f0dbdb;
+    box-shadow: 0 3px 8px rgba(206, 215, 252, 0.459);
+}
+.filter h2 {
+    font-size: 1em;
+    text-align: center;
+}
+.content_wrapper {
+    margin-top: 40px;
+    margin-right: 70px;
+    margin-left: 70px;
+    display: flex;
+    width: 100%;
+    align-content: flex-start;
+    align-items: flex-start;
+}
+.search_film_button {
+    background-color: rgba(37, 36, 95, 0.671);
+    margin-top: 20px;
+    border-radius: 8px;
+    padding: 2px 10px;
+}
+.search_film_button h2 {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+}
+.card h2{
+    background-color: rgba(37, 36, 95, 0.671);
+    border-radius: 0 0 8px 8px;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    font-size: 16px;
+    color: white;
+    margin-left: 80px;
+    box-shadow: 0 1px 8px rgba(136, 160, 184, 0.37);
+}
+.cards_films {
+    width: 100%;
+    margin-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+.film_card {
+    border-radius: 8px 8px 0 0;
+    margin-top: 20px;
+    margin-left: 80px;
+    box-shadow: 0 1px 6px rgba(85, 123, 226, 0.37);
+    width:180px;
+    height:280px;
+}
+.films_load_button {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.button_load {
+    height: 50px;
+    width: 100%;
+    border: none;
+    margin-top: 70px;
+    margin-left: 80px;
+    background-color: rgb(37, 36, 95);
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+}
+.film_panel {
+    width:100%;   
+}
+.wrapper_title h2 {
+    color: white;
+    margin-left: 30px;
+}
+.people {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.person_card {
+    margin-top: 20px;
+    margin-left: 30px;
+    box-shadow: 0 1px 6px rgba(85, 123, 226, 0.37);
+    width:230px;
+    height:230px;
+}
+.person h2{
+    background-color: rgba(37, 36, 95, 0.671);
+    margin: 0;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    font-size: 15px;
+    color: white;
+    margin-left: 30px;
+    box-shadow: 0 1px 8px rgba(136, 160, 184, 0.37);
+}
+.sign_in_content h2, p {
+    color: white;
+}
+
+.sign_in_content {
+    padding: 40px 40px;
+}
+.form_sign_in {
+    border: none;
+    display: flex;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    display: block;
+    color: white;   
+}
+.form_sign_in label {
+    margin-top: 20px;
+    display: block;
+}
+.field_sign {
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    height: 35px;
+    width: 100%;
+}
+.sign_button {
+    margin-top: 30px;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: rgb(37, 36, 95); 
+    padding: 10px 40px;
+    margin-left: none;
+    border: none;
+    color: white;
 }
