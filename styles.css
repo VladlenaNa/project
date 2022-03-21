@@ -526,6 +526,7 @@ body {
     margin-bottom: 30px;
     font-size: 16px;
     color: white;
+    margin-top: 0;
     margin-left: 80px;
     box-shadow: 0 1px 8px rgba(136, 160, 184, 0.37);
 }
