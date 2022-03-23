@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Project</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        <div class="wrapper_bg_white">
+            <div class="menu_bar">
+                <div class="navigation">
+                    <a href="index.html"><img src="img/logo.png" alt="" width = "90" height = "80"></a>
+                    <div class="buttons">
+                        <ul>
+                            <li><a href="films.html">Фильмы</a></li>
+                            <li><a href="serials.html">Сериалы</a></li>
+                            <li><a href="people.html">Люди</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a href="sign_in.html">Вход</a></li>
+                        <li><a href="sign_up.html">Регистрация</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="contact_wrap">
+                <div class="contact_content">
+                    <div class="menu_FAQ">
+                        <h3>Часто задаваемые вопросы</h3>
+                        <div class="FAQ">
+                            <ul>
+                                <li><a href = "tmdb.html" class="FAQ_links">Наша история </a></li>
+                                <li><a href = "FAQ_contact.html" class="FAQ_links">Оставаться на связи</a></li>
+                                <li><a href = "FAQ_Logo.html" class="FAQ_links">Логотипы и авторство</a></li>
+                                <li><a href = "FAQ_common.html" class="FAQ_links">Общее</a></li>
+                                <li><a href = "FAQ_account.html" class="FAQ_links">Учетная запись</a></li>
+                                <li><a href = "FAQ_website.html" class="FAQ_links">Вебсайт</a></li>
+                                <li><a href = "FAQ_API_Overview.html" class="FAQ_links">API обзор</a></li>
+                                <li><a href = "FAQ_API_Sessions.html" class="FAQ_links">API сессии</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="FAQ_column">
+                        <h2> API Sessions</h2>
+                        <p>In order for users to write data to their account via the API, we have created a user specific authentication workflow. Upon being completed successfully, the session id that is created can be used to do things like rate movies, add or remove items to a personal watchlist, and also create and edit lists.</p>
+                        <p>Please consult the official API documentation for more information.</p>
+                        <h3>API Status Codes</h3>
+                        <h2>Example Response</h2>
+                        <p>All of these status responses are returned in JSON format.</p>
+                        <p>{ <br>
+                                "success": false,<br>
+                                "status_code": 7,<br>
+                                "status_message": "Invalid API key: You must be granted a valid key."<br>
+                          }</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <nav class="footer_content">
+                <div class="footer_logo">
+                    <a href="#"><img src="img/footer_logo.png" alt="" width = "150" height = "100"></a>
+                </div>
+                <div class="info_company info">
+                    <h3>О нас</h3>
+                    <ul>
+                        <li><a href="tmdb.html">TMDB</a></li>
+                        <li><a href="contact.html">Связь с нами</a></li>
+                    </ul>
+                </div>
+                <div class="info_communty info">
+                <h3>Сообщество</h3>
+                <ul>
+                    <li><a href="leadership.html">Руководство</a></li>
+                    <li><a href="https://mobile.twitter.com/themoviedb">Twitter</a></li>
+                </ul>
+                </div>
+                <div class="info_rules info">
+                    <h3>Правила пользования</h3>
+                    <ul>
+                        <li><a href="terms_use.html">Условия пользования</a></li>
+                        <li><a href="FAQ_API_Overview.html">API</a></li>
+                    </ul>
+                </div>
+                <div class="button_join">
+                    <a href="sign_up.html">
+                        Присоединиться
+                    </a>
+                </div>
+            </nav>
+        </footer>
+    </body>
