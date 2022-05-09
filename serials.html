@@ -13,81 +13,114 @@
                     <a href="index.html"><img src="img/logo.png" alt="" width = 90 height = 80></a>
                     <div class="buttons">
                         <ul>
-                            <li><a href="films.html">Фильмы</a></li>
-                            <li><a href="serials.html">Сериалы</a></li>
-                            <li><a href="people.html">Люди</a></li>
+                            <li><a href="films.html">Films</a></li>
+                            <li><a href="serials.html">TV shows</a></li>
+                            <li><a href="people.html">People</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="nav">
                     <ul>
-                        <li><a href="sign_in.html">Вход</a></li>
-                        <li><a href="sign_up.html">Регистрация</a></li>
+                        <li><a href="sign_in.html">Sign in</a></li>
+                        <li><a href="sign_up.html">Sign up</a></li>
                     </ul>
                 </div>
             </div>
             <div class="content_wrapper">
-                <div class="left_panel">
+                <div class = "left_panel">
                     <div class="films_title">
-                        <h2>Сериалы</h2>
+                        <h2>Films</h2>
                     </div>
                     <div class="filter_panel">
-                        <div class="filter">
-                            <h2>Категория</h2>
+                        <div class="sort_select">
+                            <select>
+                              <option value="0">Sort By</option>
+                              <option id = "popularity.asc" value="1">Popularity Ascending</option>
+                              <option id = "popularity.desc" value="2">Popularity Descending</option>
+                              <option id = "rating.asc" value="3">Rating Ascending</option>
+                              <option id = "rating.desc" value="4">Rating Descending</option>
+                              <option id = "release_date.asc" value="5">Release Ascending</option>
+                              <option id = "release_date.desc" value="6">Release Descending</option>
+                              <span class="arrow"></span>
+                            </select>
+                          </div>
+                        <div class="filter_genre">
+                            <h3>Genre</h3>
+                            <ul class="by_genre">
+                                <li>
+                                    <a class = "genre" id = "10759" href="#">Action&Adventure</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "16" href="#">Animation</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "35" href="#">Comedy</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "80" href="#">Crime</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "99" href="#">Documentary</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "18" href="#">Drama</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "10751" href="#">Family</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "10762" href="#">Kids</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "9648" href="#">Mystery</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "10763" href="#">News</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "10764" href="#">Reality</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "10765" href="#">Sci-Fi&Fantasy</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "10766" href="#">Soap</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "10767" href="#">Talk</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "10768" href="#">Politics</a>
+                                </li>
+                                <li>
+                                    <a class = "genre" id = "37" href="#">Western</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="filter">
-                            <h2>Фильтры</h2>
+                        <h3>Release Date</h3>
+                        <div class="date_filter">
+                            <label for="release_gte">from</label>
+                            <input type="date" id="release_gte" name="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
                         </div>
-                        <div class="filter">
-                            <h2>Сортировать</h2>
+                        <div class="date_filter">
+                            <label for="release_lte">to</label>
+                            <input type="date" id="release_lte" name="date" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}">
                         </div>
                     </div>
                     <div class="search_film_button">
-                        <h2>Поиск</h2>
+                        <h2>Search</h2>
+                    </div>
+                </div>
+                <div id="myModal" class="modal">
+                    <div class="modal-content">
+                        <span class="close">&times;</span>
                     </div>
                 </div>
                 <div class="film_panel">
-                    <div class="cards_films">
-                        <div class="card">
-                            <img src ="img/serials/1.jpeg" class = "film_card">
-                            <h2>Ход королевы</h2>
-                        </div>
-                        <div class="card">
-                            <img src ="img/serials/2.jpeg" class = "film_card">
-                            <h2>Душегубы</h2>
-                        </div>
-                        <div class="card">
-                            <img src ="img/serials/3.jpeg" class = "film_card">
-                            <h2>Миротворец</h2>
-                        </div>
-                        <div class="card">
-                            <img src ="img/serials/4.jpeg" class = "film_card">
-                            <h2>Тед Лассо</h2>
-                        </div>
-                        <div class="card">
-                            <img src ="img/serials/5.webp" class = "film_card">
-                            <h2>Игра престолов</h2>
-                        </div>
-                        <div class="card">
-                            <img src ="img/serials/6.jpeg" class = "film_card">
-                            <h2>Рик и Морти</h2>
-                        </div>
-                        <div class="card">
-                            <img src ="img/serials/7.webp" class = "film_card">
-                            <h2>Во все тяжкие</h2>
-                        </div>
-                        <div class="card">
-                            <img src ="img/serials/8.webp" class = "film_card">
-                            <h2>Наруто</h2>
-                        </div>
-                        <div class="films_load_button">
-                            <button class="button_load">Загрузить еще</button>
-                        </div>
-                    </div>
-                
+                    <div class="cards_films"> </div>
+                    <button class="load_films_button">Load More</button>
                 </div>
                 </div>
-                
         </div>
         <footer class="footer">
             <nav class="footer_content">
@@ -95,32 +128,33 @@
                     <a href="#"><img src="img/footer_logo.png" alt="" width = "150" height = "100"></a>
                 </div>
                 <div class="info_company info">
-                    <h3>О нас</h3>
+                    <h3>About TMDB</h3>
                     <ul>
                         <li><a href="tmdb.html">TMDB</a></li>
-                        <li><a href="contact.html">Связь с нами</a></li>
+                        <li><a href="FAQ_contact.html">Contact us</a></li>
                     </ul>
                 </div>
                 <div class="info_communty info">
-                <h3>Сообщество</h3>
+                <h3>Community</h3>
                 <ul>
-                    <li><a href="leadership.html">Руководство</a></li>
+                    <li><a href="leadership.html">Guidelines</a></li>
                     <li><a href="https://mobile.twitter.com/themoviedb">Twitter</a></li>
                 </ul>
                 </div>
                 <div class="info_rules info">
-                    <h3>Правила пользования</h3>
+                    <h3>Legal</h3>
                     <ul>
-                        <li><a href="terms_use.html">Условия пользования</a></li>
+                        <li><a href="terms_use.html">Terms of use</a></li>
                         <li><a href="FAQ_API_Overview.html">API</a></li>
                     </ul>
                 </div>
                 <div class="button_join">
                     <a href="sign_up.html">
-                        Присоединиться
+                        Join the community
                     </a>
                 </div>
-            </nav>      
+            </nav>
         </footer>
+            <script src="filter_tv.js"></script>
     </body>
 </html>
