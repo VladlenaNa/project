@@ -4,29 +4,78 @@ let span = document.getElementsByClassName("close")[0]
 
 let title_film = ""
 let found_films = []
+let movies = []
 let btn_search = document.getElementsByClassName("search_button")[0]
 let film_modal = document.getElementById("films_modal");
 let film_span = document.getElementsByClassName("films_modal_close")[0];
 let input_film = document.getElementsByClassName("input_name")[0]
 
-span.onclick = function() {
-  modal.style.display = "none";
-  document.querySelector(".modal-content h2").remove()
-  document.querySelector(".modal-content p").remove()
-  document.querySelector(".modal-content img").remove()
+fillUpcomingMovies()
+fillPopularMovies()
+fillTrendingMovies()
+/**
+ * Заполнение раздела "Скоро в кино"
+ */
+async function fillUpcomingMovies() {
+    let data = await getUpcomingMovies()
+    movies = movies.concat(data)
+    data.map((movie) => {
+        img_path = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
+        div_card = document.createElement('div')
+        div_card.className = "card"
+        div_card.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class ="film_a" href="#">' + movie.title +'</a'
+        document.querySelector(".cinema_content").appendChild(div_card)
+    })	
+}
+/**
+ * Заполнение раздела "Популярные фильмы"
+ */
+async function fillPopularMovies() {
+    let data = await getPopularMovies()
+    movies = movies.concat(data)
+    data.map((movie) => {
+        img_path = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
+        div_card = document.createElement('div')
+        div_card.className = "card"
+        div_card.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class ="film_a" href="#">' + movie.title +'</a'
+        document.querySelector(".popular_content").appendChild(div_card)
+    })	
+}
+/**
+ * Заполнение раздела трендовых фильмов
+ */
+async function fillTrendingMovies() {
+    let data = await getTrendingMovies()
+    // data = data.slice(3,8)
+    console.log(data)
+    movies = movies.concat(data)
+    data.map((movie) => {
+        img_path = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
+        div_card = document.createElement('div')
+        div_card.className = "trailer"
+        div_card.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class = "trend_a" href="#">' + movie.title +'</a'
+        document.querySelector(".trailers_content").appendChild(div_card)
+    })	
 }
 
-window.onclick = function(event) {
-  if (event.target == modal) {
+span.addEventListener('click',(e)=> {
     modal.style.display = "none";
     document.querySelector(".modal-content h2").remove()
     document.querySelector(".modal-content p").remove()
     document.querySelector(".modal-content img").remove()
-  }
-}
+ })
 
-document.addEventListener('click',function(e){
-    if(e.target && e.target.className== 'film_a'){
+ window.addEventListener('click',(e)=> {
+    if (e.target == modal) {
+        modal.style.display = "none";
+        document.querySelector(".modal-content h2").remove()
+        document.querySelector(".modal-content p").remove()
+        document.querySelector(".modal-content img").remove()
+      }
+ })
+
+document.addEventListener('click', (e)=> {
+    if(e.target && e.target.className== 'film_a' || (e.target && e.target.className== 'trend_a' )){
         modal.style.display = "block"
         title = document.createElement('h2')
         title.innerHTML = e.target.innerHTML
@@ -42,10 +91,15 @@ document.addEventListener('click',function(e){
      }
  })
 
+ /**
+  * Поиск сюжета и постера кликнутого фильма
+  * @param {*} title название кликнутого фильма
+  * @returns Описание сюжета и постер
+  */
  function get_plot(title) {
-     for (let film of films) {
-        if (film.title == title)
-            return [film.overview, film.backdrop_path]
+     for (let movie of movies) {
+        if (movie.title == title)
+            return [movie.overview, movie.backdrop_path]
      }
  }
 
@@ -54,52 +108,48 @@ input_film.oninput = function(){
     console.log(title_film)
 }
 
-btn_search.addEventListener('click',function(e){
+btn_search.addEventListener('click', (e) => {
     if ((e.target && e.target.className== 'search_button') || (e.target.className=="fa fa-search")){
-        film_modal.style.display = "block"
+        film_modal.style.display = "flex"
         search_film(title_film)
      }
  })
-
-film_span.onclick = function() {
+film_span.addEventListener('click', (e)=> {
     film_modal.style.display = "none";
-    console.log(document.querySelectorAll(".div_film"))
     document.querySelector(".films_modal_content").innerHTML=""
-    new_span = document.createElement('span')
-    new_span.className = "films_modal_close"
-    new_span.innerHTML = '&times;'
-    document.querySelector(".films_modal_content").appendChild(new_span)
-    film_span = new_span
-  }
-  
-window.onclick = function(event) {
-if (event.target == film_modal) {
-    film_modal.style.display = "none";
-    if (document.querySelector(".films_modal_content div").innerHTML!="")
-    document.querySelector(".films_modal_content div").innerHTML = '<span class="films_modal_close">&times;</span>'
-}
-}
+})
 
-function search_film(title) {
-    return fetch('https://api.themoviedb.org/3/search/movie?api_key=b21ca73525eac0f28ecf0f8ae09a9306&language=en-US&query='+title)
-    .then(response => response.json())
-    .then(data => {
-        found_films = data
-        data.results.map((film) =>{
-            div_film = document.createElement('div')
-            div_film.className = "div_film"
-            title = document.createElement('h2')
-            title.innerHTML = film.title
-            plot = document.createElement('p')
-            film_img = document.createElement('img')
-            film_details = film.overview
-            film_img.src = 'https://image.tmdb.org/t/p/original/' + film.poster_path
-            div_film.appendChild(title)
-            div_film.appendChild(film_img)
-            div_film.appendChild(plot)
-            document.querySelector(".films_modal_content").appendChild(div_film)
-            plot.innerHTML = film.overview
-        })
+window.addEventListener('click',(e)=> {
+    if (e.target == film_modal) {
+        film_modal.style.display = "none";
+        document.querySelector(".films_modal_content").innerHTML=""
+}})
+
+/**
+ * Заполнение модального окна с найденными фильмами
+ * @param {*} title название/ключевое 
+ */
+async function search_film(title) {
+    found_films = await searchMovie(title)
+    if (found_films.length==0) {
+        let msg = document.createElement('h3')
+        msg.className = "message"
+        msg.innerHTML = "Sorry, there is no result:("
+        document.querySelector('.films_modal_content').appendChild(msg)
+    }
+    found_films.map((film) =>{
+        div_film = document.createElement('div')
+        div_film.className = "div_film"
+        title = document.createElement('h2')
+        title.innerHTML = film.title
+        plot = document.createElement('p')
+        film_img = document.createElement('img')
+        film_details = film.overview
+        film_img.src = 'https://image.tmdb.org/t/p/original/' + film.poster_path
+        div_film.appendChild(title)
+        div_film.appendChild(film_img)
+        div_film.appendChild(plot)
+        document.querySelector(".films_modal_content").appendChild(div_film)
+        plot.innerHTML = film.overview
     })
-    .catch(err => console.error(err))
 }

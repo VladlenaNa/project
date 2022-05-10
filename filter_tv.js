@@ -1,53 +1,54 @@
 fill()
 let tv_shows = []
-function fill() {
-    fetch('https://api.themoviedb.org/3/tv/popular/?api_key=b21ca73525eac0f28ecf0f8ae09a9306')
-	.then(response => response.json())
-	.then(data => {
-		console.log(data.results)
-        tv_shows = tv_shows.concat(data.results)
-		data.results.map((show) => {
-			img_path = 'https://image.tmdb.org/t/p/original/' + show.poster_path
-			const div_card = document.createElement('div')
-			div_card.className = "card"
-			div_card.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class ="film_a" href="#">' + show.name +'</a'
-			document.querySelector(".cards_films").appendChild(div_card)
-		})	
-	})
-	.catch(err => console.error(err));
+
+/**
+ * Заполение раздела ТВ шоу
+ */
+async function fill() {
+    data = await getPopularTVShows()
+    console.log(data)
+    data.map((show) => {
+        img_path = 'https://image.tmdb.org/t/p/original/' + show.poster_path
+        const div_card = document.createElement('div')
+        div_card.className = "card"
+        div_card.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class ="film_a" href="#">' + show.name +'</a'
+        document.querySelector(".cards_films").appendChild(div_card)
+    })	
 }
 
 let flag = true
 let genres = []
-window.onclick = function(event) {
-    console.log(genres)
-    if (event.target.matches('.genre')) {
-        console.log(event.target.style.backgroundColor)
-        if (event.target.style.backgroundColor=="") {
-            event.target.parentNode.style.backgroundColor = "rgb(1, 180, 228)";
-            event.target.style.backgroundColor = "rgb(1, 180, 228)";
-            flag = false
-            genres.push(event.target.id)
 
+window.addEventListener('click', (e)=>{
+    if (e.target.matches('.genre')) {
+        if (e.target.style.backgroundColor=="") {
+            e.target.parentNode.style.backgroundColor = "rgb(1, 180, 228)";
+            e.target.style.backgroundColor = "rgb(1, 180, 228)";
+            flag = false
+            genres.push(e.target.id)
         }
         else {
-                event.target.parentNode.style.backgroundColor = "";
-                event.target.style.backgroundColor = "";
+                e.target.parentNode.style.backgroundColor = "";
+                e.target.style.backgroundColor = "";
                 flag = true
-                delete genres[genres.indexOf(event.target.id)]
+                delete genres[genres.indexOf(e.target.id)]
         }
     }
-  }
+})
 
 let search_btn = document.getElementsByClassName("search_film_button")[0]
-search_btn.onclick = function() {
+
+search_btn.addEventListener('click', (e)=>{
     let content = document.querySelector(".cards_films")
     let films = search()
-}
-page = 1
+})
+
+/**
+ * Поиск ТВ шоу выбранных жанров
+ */
 function search() {
+    page = 1
     link = ""
-    console.log(genres)
     for (let i=0;i<genres.length-1;i++) {
         link += genres[i] + ','
     }
@@ -58,16 +59,22 @@ function search() {
 }
 
 let load_films_btn = document.getElementsByClassName("load_films_button")[0]
-load_films_btn.onclick = function() {
+
+load_films_btn.addEventListener('click', (e)=>{
     if (genres !==[]) {
         page +=1
         film_filter(genres, page.toString())
     }
     else 
         fill()
-}
+})
 
-function film_filter(genres,page) {
+/**
+ * Получение данных с фильтров ТВ шоу и заполнение
+ * @param {*} genres Жанры
+ * @param {*} page Номер страницы данных
+ */
+async function film_filter(genres,page) {
     if (document.getElementById("release_gte").value!="")
         release_date_gte = '&primary_release_date.gte=' + document.getElementById("release_gte").value
     else
@@ -82,22 +89,23 @@ function film_filter(genres,page) {
         filter = "popularity.desc"
     else 
         filter = document.querySelector(".same-as-selected").id
-    return fetch('https://api.themoviedb.org/3/discover/tv?api_key=b21ca73525eac0f28ecf0f8ae09a9306&page=1&with_genres='+genres+'&page='+page+'&sort_by='+filter+release_date_gte+release_date_lte)
-    .then(response => response.json())
-    .then(data => {
-        tv_shows = tv_shows.concat(data.results)
-        console.log(data.results)
-		data.results.map((show) => {
-			img_path = 'https://image.tmdb.org/t/p/original/' + show.poster_path
-            if (show.poster_path!=null) {
-                const div_card = document.createElement('div')
-                div_card.className = "card"
-                div_card.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class = "film_a" href="#">' + show.name +'</a'
-                document.querySelector(".cards_films").appendChild(div_card)
-            }
-		})
+    data = await getFilteredTVShows(genres, page, filter, release_date_gte, release_date_lte)
+    if (data.length==0) {
+        let msg = document.createElement('h3')
+        msg.className = "message"
+        msg.innerHTML = "Sorry, there is no result:("
+        document.querySelector('.cards_films').appendChild(msg)
+    }
+    tv_shows = tv_shows.concat(data)
+    data.map((show) => {
+        img_path = 'https://image.tmdb.org/t/p/original/' + show.poster_path
+        if (show.poster_path!=null) {
+            const div_card = document.createElement('div')
+            div_card.className = "card"
+            div_card.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class = "film_a" href="#">' + show.name +'</a'
+            document.querySelector(".cards_films").appendChild(div_card)
+        }
     })
-    .catch(err => console.error(err));
 }
 
 var x, i, j, selElmnt, a, b, c;
@@ -142,6 +150,7 @@ for (i = 0; i < x.length; i++) {
       this.classList.toggle("select-arrow-active");
     });
 }
+
 function closeAllSelect(elmnt) {
   var x, y, i, arrNo = [];
   x = document.getElementsByClassName("select-items");
@@ -159,26 +168,26 @@ function closeAllSelect(elmnt) {
     }
   }
 }
+
 document.addEventListener("click", closeAllSelect);
 
 let modal = document.getElementById("myModal");
 let btn = document.querySelectorAll('.cards_films')
 let span = document.getElementsByClassName("close")[0];
 
-span.onclick = function() {
+span.addEventListener('click', (e)=>{
     modal.style.display = "none";
     if (document.querySelector(".modal-content").innerHTML!="")
         document.querySelector(".modal-content").innerHTML = ""
+})
 
-}
-
-modal.onclick = function() {
+modal.addEventListener('click', (e)=>{
     modal.style.display = "none";
     if (document.querySelector(".modal-content").innerHTML!="")
         document.querySelector(".modal-content").innerHTML = ""
-}
+})
 
-document.addEventListener('click',function(e){
+document.addEventListener('click', (e)=>{
     if(e.target && e.target.className== 'film_a'){
         console.log(e.target.innerHTML)
         modal.style.display = "block"
@@ -194,8 +203,13 @@ document.addEventListener('click',function(e){
         document.querySelector(".modal-content").appendChild(plot)
         plot.innerHTML = overview
         }
-});
+})
 
+/**
+ * Поиск описания и постера кликнутой тв-программы
+ * @param {*} title название/ключевое слово
+ * @returns массив из описания и постера
+ */
 function get_plot(title) {
     for (let tv_show of tv_shows) {
     if (tv_show.name == title) {

@@ -34,7 +34,7 @@
                         <h3>Millions of movies, TV shows to discover. Explore now and enjoy!</h3>
                         <form class="search_form" action="" method="get">
                             <input class="input_name" name="s" placeholder="Enter name...">
-                            <button class="search_button"><i class="fa fa-search"></i></button>
+                            <button class="search_button" type="button"><i class="fa fa-search"></i></button>
                         </form>
                     </div>
                     
@@ -45,9 +45,10 @@
                 </div>
             </div>
             <div id="films_modal" class="films_modal" style="display: none;">
-                <div class="films_modal_content">
+                <div class="films_modal_header">
                     <span class="films_modal_close">&times;</span>
                 </div>
+                <div class="films_modal_content"></div>
             </div>
             <div class="popular_wrapper">
                 <div class="popular_header">
@@ -69,21 +70,10 @@
         </div>
         <div class="recent_trailers">
             <div class="recent_trailers_header">
-                <h2>Recent trailers</h2>
+                <h2>Trending</h2>
             </div>
                 <div class="trailers_content">
-                    <div class="trailer">
-                        <img src="img/films_icon/15.jpeg" width="270" height="150" alt="Игра теней" class="film_icon">
-                        <h2>Main hero</h2>
-                    </div>
-                    <div class="trailer">
-                        <img src="img/films_icon/16.jpeg" width="270" height="150" alt="Игра теней" class="film_icon">
-                        <h2>Dangerous</h2>
-                    </div>
-                    <div class="trailer">
-                        <img src="img/films_icon/17.jpeg" width="270" height="150" alt="Игра теней" class="film_icon">
-                        <h2>Time</h2>
-                    </div>
+                    
                 </div>
         </div>
         </div>
@@ -120,6 +110,7 @@
                 </div>
             </nav>
         </footer>
+        <script src="Api.js"></script>
         <script src="details.js"></script>
     </body>
 </html>
