@@ -6,7 +6,7 @@ let tv_shows = []
  */
 async function fill() {
     data = await getPopularTVShows()
-    console.log(data)
+    tv_shows = tv_shows.concat(data)
     data.map((show) => {
         img_path = 'https://image.tmdb.org/t/p/original/' + show.poster_path
         const div_card = document.createElement('div')
@@ -36,11 +36,9 @@ window.addEventListener('click', (e)=>{
     }
 })
 
-let search_btn = document.getElementsByClassName("search_film_button")[0]
-
-search_btn.addEventListener('click', (e)=>{
-    let content = document.querySelector(".cards_films")
-    let films = search()
+let searchBtn = document.querySelector(".search_film_button")
+searchBtn.addEventListener('click', (e)=>{
+    search()
 })
 
 /**
@@ -54,16 +52,16 @@ function search() {
     }
     link+= genres[genres.length-1]
     films = []
-    film_filter(genres, 1)
+    filmFilter(genres, 1)
     document.querySelector(".cards_films").innerHTML = ""
 }
 
-let load_films_btn = document.getElementsByClassName("load_films_button")[0]
+let loadFilmsBtn = document.querySelector(".load_films_button")
 
-load_films_btn.addEventListener('click', (e)=>{
+loadFilmsBtn.addEventListener('click', (e)=>{
     if (genres !==[]) {
         page +=1
-        film_filter(genres, page.toString())
+        filmFilter(genres, page.toString())
     }
     else 
         fill()
@@ -74,7 +72,7 @@ load_films_btn.addEventListener('click', (e)=>{
  * @param {*} genres Жанры
  * @param {*} page Номер страницы данных
  */
-async function film_filter(genres,page) {
+async function filmFilter(genres,page) {
     if (document.getElementById("release_gte").value!="")
         release_date_gte = '&primary_release_date.gte=' + document.getElementById("release_gte").value
     else
@@ -108,7 +106,7 @@ async function film_filter(genres,page) {
     })
 }
 
-var x, i, j, selElmnt, a, b, c;
+let x, i, j, selElmnt, a, b, c;
 x = document.getElementsByClassName("sort_select");
 for (i = 0; i < x.length; i++) {
   selElmnt = x[i].getElementsByTagName("select")[0];
@@ -211,10 +209,11 @@ document.addEventListener('click', (e)=>{
  * @returns массив из описания и постера
  */
 function get_plot(title) {
+    console.log(tv_shows)
     for (let tv_show of tv_shows) {
     if (tv_show.name == title) {
-		if (tv_show.backdrop_path==null)
-			return [tv_show.overview, tv_show.poster_path]
+		if (tv_show.backdrop_path==null) {
+			return [tv_show.overview, tv_show.poster_path] }
 		else
 			return [tv_show.overview, tv_show.backdrop_path]
 	}

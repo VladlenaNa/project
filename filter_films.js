@@ -6,38 +6,57 @@ let movies = []
  */
 async function fill() {
     data = await getUpcomingMovies()
-    movies = movies.concat(data)
-    data.map((movie) => {
-        img_path = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
-        const div_card = document.createElement('div')
-        div_card.className = "card"
-        div_card.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class ="film_a" href="#">' + movie.title +'</a'
-        document.querySelector(".cards_films").appendChild(div_card)
-    })	
+    if (data) {
+        movies = movies.concat(data)
+        data.map((movie) => {
+            img_path = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
+            const div_card = document.createElement('div')
+            div_card.className = "card"
+            img = document.createElement('img')
+            img.width = '150'
+            img.height = '200'
+            img.src = img_path
+            titleA = document.createElement('a')
+            titleA.href = "#"
+            titleA.text = movie.title
+            titleA.className = "film_a"
+            div_card.appendChild(img)
+            div_card.appendChild(titleA)
+            document.querySelector(".cards_films").appendChild(div_card)
+        })	
+    }
 }
 
 let flag = true
 let genres = []
 
-window.addEventListener('click', (e)=>{
-    if (e.target.matches('.genre')) {
-        if (e.target.style.backgroundColor=="") {
-            e.target.parentNode.style.backgroundColor = "rgb(1, 180, 228)";
-            e.target.style.backgroundColor = "rgb(1, 180, 228)";
-            flag = false
-            genres.push(e.target.id) }
-        else {
-            e.target.parentNode.style.backgroundColor = "";
-            e.target.style.backgroundColor = "";
-            flag = true
-            delete genres[genres.indexOf(e.target.id)] }
-    }
-})
+/**
+ * Заполнение выбранных жанров 
+ * @param {*} e название выбранного жанра
+ */
+function setGenre(e) {
+    if (e.style.backgroundColor=="") {
+        e.parentNode.style.backgroundColor = "rgb(1, 180, 228)";
+        e.style.backgroundColor = "rgb(1, 180, 228)";
+        flag = false
+        genres.push(e.id) }
+    else {
+        e.parentNode.style.backgroundColor = "";
+        e.style.backgroundColor = "";
+        flag = true
+        delete genres[genres.indexOf(e.id)] }
+}
 
-let search_btn = document.getElementsByClassName("search_film_button")[0]
-search_btn.onclick = function() {
-    let content = document.querySelector(".cards_films")
-    let movies = search()
+genre = document.querySelector('.by_genre')
+genre.addEventListener('click',(e)=> {
+    if (e.target.className == "genre")
+        setGenre(e.target) })
+
+
+
+let searchBtn = document.querySelector(".search_film_button")
+searchBtn.onclick = function() {
+    search()
 }
 /**
  * Поиск фильмов выбранных жанров
@@ -50,15 +69,15 @@ function search() {
     }
     link+= genres[genres.length-1]
     movies = []
-    film_filter(genres, 1)
+    filmFilter(genres, 1)
     document.querySelector(".cards_films").innerHTML = ""
 }
 
-let load_films_btn = document.getElementsByClassName("load_films_button")[0]
-load_films_btn.onclick = function() {
+let loadFilmsBtn = document.querySelector(".load_films_button")
+loadFilmsBtn.onclick = function() {
     if (genres !==[]) {
         page +=1
-        film_filter(genres, page.toString())
+        filmFilter(genres, page.toString())
     }
     else 
         fill()
@@ -69,7 +88,7 @@ load_films_btn.onclick = function() {
  * @param {*} genres Жанры
  * @param {*} page Номер страницы данных
  */
-async function film_filter(genres, page) {
+async function filmFilter(genres, page) {
     if (document.getElementById("release_gte").value!="")
         release_date_gte = '&primary_release_date.gte=' + document.getElementById("release_gte").value
     else
@@ -90,17 +109,29 @@ async function film_filter(genres, page) {
         msg.className = "message"
         msg.innerHTML = "Sorry, there is no result:("
         document.querySelector('.cards_films').appendChild(msg)
+        data = []
     }
-    movies= movies.concat(data)
-    data.map((movie) => {
-        img_path = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
-        if (movie.poster_path!=null) {
-            const div_card = document.createElement('div')
-            div_card.className = "card"
-            div_card.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class = "film_a" href="#">' + movie.title +'</a'
-            document.querySelector(".cards_films").appendChild(div_card)
-        }
-    })
+    if (data) {
+        movies= movies.concat(data)
+        data.map((movie) => {
+            img_path = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
+            if (movie.poster_path!=null) {
+                const div_card = document.createElement('div')
+                div_card.className = "card"
+                img = document.createElement('img')
+                img.width = '150'
+                img.height = '200'
+                img.src = img_path
+                titleA = document.createElement('a')
+                titleA.href = "#"
+                titleA.text = movie.title
+                titleA.className = "film_a"
+                div_card.appendChild(img)
+                div_card.appendChild(titleA)
+                document.querySelector(".cards_films").appendChild(div_card)
+            }
+        })
+    }
 }
 getGenre()
 /**
@@ -111,7 +142,7 @@ function getGenre() {
     x = document.getElementsByClassName("sort_select");
     for (i = 0; i < x.length; i++) {
     selElmnt = x[i].getElementsByTagName("select")[0];
-    a = document.createElement("DIV");
+    a = document.createElement("div");
     a.setAttribute("class", "select-selected");
     a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
     x[i].appendChild(a);
@@ -151,7 +182,7 @@ function getGenre() {
     }
 
     function closeAllSelect(elmnt) {
-    var x, y, i, arrNo = [];
+    let x, y, i, arrNo = [];
     x = document.getElementsByClassName("select-items");
     y = document.getElementsByClassName("select-selected");
     for (i = 0; i < y.length; i++) {

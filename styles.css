@@ -197,13 +197,13 @@ body {
     margin-left: 20px;
 }
 .recent_trailers {
-    overflow-x: auto;
+    overflow-x: scroll; 
     background-image: url("img/matrix2jpg.webp");
     background-size: cover;
     width: 100%;
     margin-left: 70px;
     margin-right: 70px;
-    height: 360px;
+    height: 400px;
     opacity: 90%;
     margin-bottom: 50px;
     border-radius: 5px;
@@ -271,10 +271,10 @@ body {
     background-color: #080D1D;
     color: #fff;
 }
-.footer_logo {
+.footer__logo {
     margin-right: 20px;
 }
-.footer_content {
+.footer__content {
     display:  flex;
     justify-content: space-between;
     padding-top: 30px;
@@ -725,8 +725,8 @@ body {
       font-size: 18px;
   }
 .modal-content img {
-    width: 250px;
-    height: 200px;
+    width: 300px;
+    height: 210px;
 }
 .modal-content img {
     float: left;
@@ -872,6 +872,7 @@ body {
 }
 .load_films_button {
     width: 100%;
+    margin-left: 20px;
     background-color: rgb(1, 180, 228);
     border-color: rgb(1, 180, 228);;
     margin-top: 30px;
