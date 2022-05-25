@@ -1,6 +1,6 @@
 fill()
 let tvShows = []
-let page = 0
+let page = 1
 /**
  * Заполение раздела ТВ шоу
  */
@@ -59,6 +59,7 @@ let loadFilmsBtn = document.querySelector(".load_films_button")
 
 loadFilmsBtn.addEventListener('click', (e)=>{
     if (genres !==[]) {
+        console.log(page)
         page +=1
         filmFilter(genres, page.toString())
     }

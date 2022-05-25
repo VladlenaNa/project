@@ -77,12 +77,9 @@ function search() {
 let loadFilmsBtn = document.querySelector(".load_films_button")
 loadFilmsBtn.onclick = function() {
     if (genres !==[]) {
-        console.log(genres)
         page +=1
         filmFilter(genres, page.toString())
     }
-    else 
-        fill()
 }
 
 /**
@@ -115,6 +112,7 @@ async function filmFilter(genres, page) {
     }
     if (data) {
         movies= movies.concat(data)
+        console.log(data)
         data.map((movie) => {
             imgPath = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
             if (movie.poster_path!=null) {
