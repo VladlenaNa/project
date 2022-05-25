@@ -33,7 +33,7 @@ async function getPopularTVShows() {
  * @returns Массив фильмов соотвествующий параметрам
  */
 async function getFilteredTVShows(genres, page, filter, releaseDateGte, releaseDateLte) {
-	return fetch('https://api.themoviedb.org/3/discover/tv?api_key='+API_KEY+'&page=1&with_genres='+genres+'&page='+page+'&sort_by='+filter+releaseDateGte+releaseDateLte)
+	return fetch('https://api.themoviedb.org/3/discover/tv?api_key='+API_KEY+'&with_genres='+genres+'&page='+page+'&sort_by='+filter+releaseDateGte+releaseDateLte)
     .then(response => response.json())
     .then(data => {
         return data.results

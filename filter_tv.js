@@ -1,6 +1,6 @@
 fill()
 let tvShows = []
-let page = 1
+let page = 0
 /**
  * Заполение раздела ТВ шоу
  */
