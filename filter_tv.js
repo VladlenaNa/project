@@ -1,38 +1,37 @@
 fill()
-let tv_shows = []
-
+let tvShows = []
+let page = 0
 /**
  * Заполение раздела ТВ шоу
  */
 async function fill() {
     data = await getPopularTVShows()
-    tv_shows = tv_shows.concat(data)
+    tvShows = tvShows.concat(data)
     data.map((show) => {
         img_path = 'https://image.tmdb.org/t/p/original/' + show.poster_path
-        const div_card = document.createElement('div')
-        div_card.className = "card"
-        div_card.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class ="film_a" href="#">' + show.name +'</a'
-        document.querySelector(".cards_films").appendChild(div_card)
+        const divCard = document.createElement('div')
+        divCard.className = "card"
+        divCard.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class ="film_a" href="#">' + show.name +'</a'
+        document.querySelector(".cards_films").appendChild(divCard)
     })	
 }
 
 let flag = true
 let genres = []
+let filmGenre = document.querySelector(".by_genre");
 
-window.addEventListener('click', (e)=>{
-    if (e.target.matches('.genre')) {
-        if (e.target.style.backgroundColor=="") {
-            e.target.parentNode.style.backgroundColor = "rgb(1, 180, 228)";
-            e.target.style.backgroundColor = "rgb(1, 180, 228)";
-            flag = false
-            genres.push(e.target.id)
-        }
-        else {
-                e.target.parentNode.style.backgroundColor = "";
-                e.target.style.backgroundColor = "";
-                flag = true
-                delete genres[genres.indexOf(e.target.id)]
-        }
+filmGenre.addEventListener('click', (e)=>{
+    if (e.target.style.backgroundColor=="") {
+        e.target.parentNode.style.backgroundColor = "rgb(1, 180, 228)";
+        e.target.style.backgroundColor = "rgb(1, 180, 228)";
+        flag = false
+        genres.push(e.target.id)
+    }
+    else {
+            e.target.parentNode.style.backgroundColor = "";
+            e.target.style.backgroundColor = "";
+            flag = true
+            delete genres[genres.indexOf(e.target.id)]
     }
 })
 
@@ -63,8 +62,6 @@ loadFilmsBtn.addEventListener('click', (e)=>{
         page +=1
         filmFilter(genres, page.toString())
     }
-    else 
-        fill()
 })
 
 /**
@@ -74,34 +71,35 @@ loadFilmsBtn.addEventListener('click', (e)=>{
  */
 async function filmFilter(genres,page) {
     if (document.getElementById("release_gte").value!="")
-        release_date_gte = '&primary_release_date.gte=' + document.getElementById("release_gte").value
+        releaseDateGte = '&primary_release_date.gte=' + document.getElementById("release_gte").value
     else
-        release_date_gte = ""
+        releaseDateGte = ""
     if (document.getElementById("release_lte").value!="")
-        release_date_lte = '&primary_release_date.lte' + document.getElementById("release_lte").value
+        releaseDateLte = '&primary_release_date.lte' + document.getElementById("release_lte").value
     else 
-        release_date_lte = ""
-    if (genres == []) 
-        genres = [28]
+        releaseDateLte = ""
+    if (genres.length==0) 
+        genres = [9648]
     if (document.querySelector(".same-as-selected")==null)
         filter = "popularity.desc"
     else 
         filter = document.querySelector(".same-as-selected").id
-    data = await getFilteredTVShows(genres, page, filter, release_date_gte, release_date_lte)
+    data = await getFilteredTVShows(genres, page, filter, releaseDateGte, releaseDateLte)
     if (data.length==0) {
         let msg = document.createElement('h3')
         msg.className = "message"
         msg.innerHTML = "Sorry, there is no result:("
         document.querySelector('.cards_films').appendChild(msg)
     }
-    tv_shows = tv_shows.concat(data)
+    tvShows = tvShows.concat(data)
+    console.log(data)
     data.map((show) => {
         img_path = 'https://image.tmdb.org/t/p/original/' + show.poster_path
         if (show.poster_path!=null) {
-            const div_card = document.createElement('div')
-            div_card.className = "card"
-            div_card.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class = "film_a" href="#">' + show.name +'</a'
-            document.querySelector(".cards_films").appendChild(div_card)
+            const divCard = document.createElement('div')
+            divCard.className = "card"
+            divCard.innerHTML += '<img width ="150" height ="200" src=' + img_path + '> </img>' + '<a class = "film_a" href="#">' + show.name +'</a'
+            document.querySelector(".cards_films").appendChild(divCard)
         }
     })
 }
@@ -185,37 +183,38 @@ modal.addEventListener('click', (e)=>{
         document.querySelector(".modal-content").innerHTML = ""
 })
 
-document.addEventListener('click', (e)=>{
-    if(e.target && e.target.className== 'film_a'){
-        console.log(e.target.innerHTML)
-        modal.style.display = "block"
-        title = document.createElement('h2')
-        title.innerHTML = e.target.innerHTML
-        plot = document.createElement('p')
-        film_img = document.createElement('img')
-        film_details = get_plot(e.target.innerHTML)
-        overview = film_details[0] 
-        film_img.src = 'https://image.tmdb.org/t/p/original/' + film_details[1] 
-        document.querySelector(".modal-content").appendChild(title)
-        document.querySelector(".modal-content").append(film_img)
-        document.querySelector(".modal-content").appendChild(plot)
-        plot.innerHTML = overview
-        }
-})
+function showModal(e){
+    modal.style.display = "block"
+    title = document.createElement('h2')
+    title.innerHTML = e
+    plot = document.createElement('p')
+    filmImg = document.createElement('img')
+    filmDetails = getPlot(e)
+    overview = filmDetails[0] 
+    filmImg.src = 'https://image.tmdb.org/t/p/original/' + filmDetails[1] 
+    document.querySelector(".modal-content").appendChild(title)
+    document.querySelector(".modal-content").append(filmImg)
+    document.querySelector(".modal-content").appendChild(plot)
+    plot.innerHTML = overview
+}
 
+tvShowA = document.querySelector('.cards_films')
+tvShowA.addEventListener('click',(e)=> {
+    if (e.target.className == "film_a") 
+        showModal(e.target.innerHTML) })
 /**
  * Поиск описания и постера кликнутой тв-программы
  * @param {*} title название/ключевое слово
  * @returns массив из описания и постера
  */
-function get_plot(title) {
-    console.log(tv_shows)
-    for (let tv_show of tv_shows) {
-    if (tv_show.name == title) {
-		if (tv_show.backdrop_path==null) {
-			return [tv_show.overview, tv_show.poster_path] }
+function getPlot(title) {
+    console.log(tvShows)
+    for (let tvShow of tvShows) {
+    if (tvShow.name == title) {
+		if (tvShow.backdrop_path==null) {
+			return [tvShow.overview, tvShow.poster_path] }
 		else
-			return [tv_show.overview, tv_show.backdrop_path]
+			return [tvShow.overview, tvShow.backdrop_path]
 	}
     }
 }

@@ -1,6 +1,6 @@
 fill()
 let movies = []
-
+let page=0
 /**
  * Заполнение раздела найденных фильмов
  */
@@ -9,20 +9,20 @@ async function fill() {
     if (data) {
         movies = movies.concat(data)
         data.map((movie) => {
-            img_path = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
-            const div_card = document.createElement('div')
-            div_card.className = "card"
+            imgPath = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
+            const divCard = document.createElement('div')
+            divCard.className = "card"
             img = document.createElement('img')
             img.width = '150'
             img.height = '200'
-            img.src = img_path
+            img.src = imgPath
             titleA = document.createElement('a')
             titleA.href = "#"
             titleA.text = movie.title
             titleA.className = "film_a"
-            div_card.appendChild(img)
-            div_card.appendChild(titleA)
-            document.querySelector(".cards_films").appendChild(div_card)
+            divCard.appendChild(img)
+            divCard.appendChild(titleA)
+            document.querySelector(".cards_films").appendChild(divCard)
         })	
     }
 }
@@ -45,6 +45,7 @@ function setGenre(e) {
         e.style.backgroundColor = "";
         flag = true
         delete genres[genres.indexOf(e.id)] }
+    console.log(genres)
 }
 
 genre = document.querySelector('.by_genre')
@@ -76,6 +77,7 @@ function search() {
 let loadFilmsBtn = document.querySelector(".load_films_button")
 loadFilmsBtn.onclick = function() {
     if (genres !==[]) {
+        console.log(genres)
         page +=1
         filmFilter(genres, page.toString())
     }
@@ -90,20 +92,20 @@ loadFilmsBtn.onclick = function() {
  */
 async function filmFilter(genres, page) {
     if (document.getElementById("release_gte").value!="")
-        release_date_gte = '&primary_release_date.gte=' + document.getElementById("release_gte").value
+        releaseDateGte = '&primary_release_date.gte=' + document.getElementById("release_gte").value
     else
-        release_date_gte = ""
+        releaseDateGte = ""
     if (document.getElementById("release_lte").value!="")
-        release_date_lte = '&primary_release_date.lte' + document.getElementById("release_lte").value
+        releaseDateLte = '&primary_release_date.lte=' + document.getElementById("release_lte").value
     else 
-        release_date_lte = ""
-    if (genres == []) 
-        genres = [28]
+        releaseDateLte = ""
+    if (genres.length==0) 
+        genres = [14]
     if (document.querySelector(".same-as-selected")==null)
         filter = "popularity.desc"
     else 
         filter = document.querySelector(".same-as-selected").id
-    data = await getFilteredMovies(genres, page, filter, release_date_gte, release_date_lte)
+    data = await getFilteredMovies(genres, page, filter, releaseDateGte, releaseDateLte)
     if (data.length==0) {
         let msg = document.createElement('h3')
         msg.className = "message"
@@ -114,21 +116,21 @@ async function filmFilter(genres, page) {
     if (data) {
         movies= movies.concat(data)
         data.map((movie) => {
-            img_path = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
+            imgPath = 'https://image.tmdb.org/t/p/original/' + movie.poster_path
             if (movie.poster_path!=null) {
-                const div_card = document.createElement('div')
-                div_card.className = "card"
+                const divCard = document.createElement('div')
+                divCard.className = "card"
                 img = document.createElement('img')
                 img.width = '150'
                 img.height = '200'
-                img.src = img_path
+                img.src = imgPath
                 titleA = document.createElement('a')
                 titleA.href = "#"
                 titleA.text = movie.title
                 titleA.className = "film_a"
-                div_card.appendChild(img)
-                div_card.appendChild(titleA)
-                document.querySelector(".cards_films").appendChild(div_card)
+                divCard.appendChild(img)
+                divCard.appendChild(titleA)
+                document.querySelector(".cards_films").appendChild(divCard)
             }
         })
     }
@@ -217,30 +219,32 @@ modal.addEventListener('click', (e)=> {
         document.querySelector(".modal-content").innerHTML = ""
 })
 
-document.addEventListener('click',function(e){
-    if(e.target && e.target.className== 'film_a'){
-        console.log(e.target.innerHTML)
-        modal.style.display = "block"
-        title = document.createElement('h2')
-        title.innerHTML = e.target.innerHTML
-        plot = document.createElement('p')
-        film_img = document.createElement('img')
-        film_details = get_plot(e.target.innerHTML)
-        overview = film_details[0]
-        film_img.src = 'https://image.tmdb.org/t/p/original/' + film_details[1] 
-        document.querySelector(".modal-content").appendChild(title)
-        document.querySelector(".modal-content").append(film_img)
-        document.querySelector(".modal-content").appendChild(plot)
-        plot.innerHTML = overview
-        }
-});
+function showModal(e){
+    modal.style.display = "block"
+    title = document.createElement('h2')
+    title.innerHTML = e
+    plot = document.createElement('p')
+    filmImg = document.createElement('img')
+    filmDetails = getPlot(e)
+    overview = filmDetails[0] 
+    filmImg.src = 'https://image.tmdb.org/t/p/original/' + filmDetails[1] 
+    document.querySelector(".modal-content").appendChild(title)
+    document.querySelector(".modal-content").append(filmImg)
+    document.querySelector(".modal-content").appendChild(plot)
+    plot.innerHTML = overview
+}
+
+filmA = document.querySelector('.cards_films')
+filmA.addEventListener('click',(e)=> {
+    if (e.target.className == "film_a") 
+        showModal(e.target.innerHTML) })
 
 /**
  * Поиск сюжета и постера кликнутого фильма
  * @param {*} title название/ключевое слово
  * @returns массив из сюжета и постера
  */
-function get_plot(title) {
+function getPlot(title) {
     for (let movie of movies) {
     if (movie.title == title)
         if (movie.backdrop_path==null)
