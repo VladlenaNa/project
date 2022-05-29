@@ -197,7 +197,6 @@ body {
     margin-left: 70px;
 }
 .recent_trailers {
-    overflow-x: scroll; 
     background-image: url("img/matrix2jpg.webp");
     background-size: cover;
     width: 100%;
@@ -538,14 +537,6 @@ body {
 .films_title h2 {
     color: white;
 }
-.filter {
-    background-color: white;
-    margin-top: 20px;
-    padding: 2px 50px;
-    border-radius: 8px;
-    border: 1px solid #f0dbdb;
-    box-shadow: 0 3px 8px rgba(206, 215, 252, 0.459);
-}
 .filter h2 {
     font-size: 1em;
     text-align: center;
@@ -811,21 +802,13 @@ body {
 .filter_panel {
     width: 250px;
 }
-  .filter_by_genre {
-    background-color: #ffffff;
-    color: rgb(0, 0, 0);
-    padding: 16px;
-    font-size: 16px;
+.filter_by_genre {
     border: none;
-    cursor: pointer;
 }
-.filter_by_genre:hover, .filter_by_genre:focus {
-    background-color: #2980B9;
-}
-
-.filter {
-    position: relative;
-    display: inline-block;
+.selectItem {
+    background-color: rgb(1, 12, 22);
+    color: white;
+    height: 30px;
 }
 
 .dropdown-genre {

@@ -173,8 +173,13 @@ filmSpan.addEventListener('click', (e)=> {
 
 filmModal.addEventListener('click', (e)=> {
     filmModal.style.display = "none";
-        document.querySelector(".films_modal_content").innerHTML=""
+    document.querySelector(".films_modal_content").innerHTML=""
 })
+// window.addEventListener('click',(e)=> {
+//     if (e.target == filmModal) {
+//         filmModal.style.display = "none";
+//         document.querySelector(".films_modal_content").innerHTML=""
+// }})
 
 /**
  * Заполнение модального окна с найденными фильмами

@@ -33,21 +33,19 @@
                     </div>
                     <div class="filter_panel">
                         <div class="filter">
-                            <button class="filter_by_genre" >Sort by</button>
+                            <h3 class="filter_by_genre" >Sort by</h3>
                             
                         </div>
-                        <div class="sort_select">
-                            <select>
-                              <option value="0">Sort By</option>
-                              <option id = "popularity.asc" value="1">Popularity Ascending</option>
-                              <option id = "popularity.desc" value="2">Popularity Descending</option>
-                              <option id = "rating.asc" value="3">Rating Ascending</option>
-                              <option id = "rating.desc" value="4">Rating Descending</option>
-                              <option id = "release_date.asc" value="5">Release Ascending</option>
-                              <option id = "release_date.desc" value="6">Release Descending</option>
-                              <span class="arrow"></span>
+                        <form>
+                            <select class="selectItem" name="s0">
+                                <option id = "popularity.asc" value="popularity.asc">Popularity Ascending</option>
+                                <option id = "popularity.desc" value="popularity.desc">Popularity Descending</option>
+                                <option id = "rating.asc" value="rating.asc">Rating Ascending</option>
+                                <option id = "rating.desc" value="rating.desc">Rating Descending</option>
+                                <option id = "release_date.asc" value="release_date.asc">Release Ascending</option>
+                                <option id = "release_date.desc" value="release_date.desc">Release Descending</option>
                             </select>
-                          </div>
+                        </form>
                         <div class="filter_genre">
                             <h3>Genre</h3>
                             <ul class="by_genre">

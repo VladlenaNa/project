@@ -63,11 +63,9 @@ async function getUpcomingMovies() {
  */
 async function getFilteredMovies(genres, page, filter, releaseDateGte, releaseDateLte) {
 	page = Number(page)
-	console.log(page)
 	return fetch('https://api.themoviedb.org/3/discover/movie?api_key='+API_KEY+'&with_genres='+genres+'&page='+page+'&sort_by='+filter+releaseDateGte+releaseDateLte)
     .then(response => response.json())
     .then(data => {
-		console.log(data.results)
         return data.results
     })
     .catch(err => {
