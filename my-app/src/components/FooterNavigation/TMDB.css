@@ -1,0 +1,104 @@
+.footer__tmdb {
+  background-color: rgb(14, 18, 29);
+  width: 100%;
+  height: auto;
+  padding-bottom: 300px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: center;
+}
+.info_tmdb h2,
+h4 {
+  color: white;
+  font-size: 30px;
+  text-align: center;
+}
+.info_tmdb p {
+  color: white;
+  font-size: 20px;
+}
+.advantages {
+  margin: 0 auto;
+  width: 800px;
+}
+.advantages li {
+  color: white;
+  margin-top: 20px;
+  text-align: center;
+}
+.info_tmdb {
+  padding: 30px;
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+.border_advantages li {
+  list-style: none;
+  padding: 8px 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border-left: 10px solid #213374;
+  box-shadow: 2px -2px 5px 0 rgba(0, 0, 0, 0.1),
+    -2px -2px 5px 0 rgba(0, 0, 0, 0.1), 2px 2px 5px 0 rgba(0, 0, 0, 0.1),
+    -2px 2px 5px 0 rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  letter-spacing: 1px;
+  transition: 0.2s all linear;
+}
+.tmdb_stats_content {
+  display: flex;
+  margin-left: 60px;
+}
+
+.tmdb_stats_content p {
+  color: white;
+}
+.tmdb_stats_content h2 {
+  color: white;
+  margin-bottom: 0;
+  font-size: 30px;
+}
+.tmdb_stats {
+  margin-top: 40px;
+  margin-bottom: 80px;
+  padding: 0 60px;
+  width: 80%;
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-start;
+  background-color: rgba(50, 48, 136, 0.445);
+}
+.numbers_staat {
+  width: 600px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.numbers_staat p {
+  color: white;
+}
+.round_staat {
+  background-color: #253c91;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  text-align: center;
+}
+.round_staat p {
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 14px;
+  padding-top: 38px;
+}
+.card_staat {
+  padding-right: 30px;
+  text-align: center;
+}
+.round_staat p {
+  font-weight: bold;
+}
+.tmdb_stats_content p {
+  margin-top: 5px;
+  font-size: 16px;
+}

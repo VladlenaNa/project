@@ -1,0 +1,30 @@
+.popular_content {
+  display: flex;
+  overflow-x: scroll;
+  align-content: center;
+  margin-top: 20px;
+  align-items: auto;
+}
+.popular__header {
+  padding-top: 20px;
+  margin-left: 30px;
+}
+.popular__header h2 {
+  color: white;
+  font-size: 24;
+  margin: 0;
+  padding: 0;
+}
+.popular_content h2 {
+  color: white;
+}
+.popular_wrapper h2 {
+  color: white;
+  margin-top: 20px;
+}
+.popular_wrapper {
+  padding-top: 30px;
+  padding-bottom: 20px;
+  width: 100%;
+  height: auto;
+}

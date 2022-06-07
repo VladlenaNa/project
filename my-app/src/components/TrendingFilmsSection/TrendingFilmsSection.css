@@ -1,0 +1,32 @@
+.trending_content {
+  display: flex;
+  overflow-x: scroll;
+  align-content: center;
+  margin: 0 auto;
+  align-items: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 20px;
+}
+
+.trending__header h2 {
+  color: white;
+  font-size: 24;
+  margin-left: 20px;
+  padding: 0;
+}
+.trending_content h2 {
+  color: white;
+}
+.trending_wrapper h2 {
+  color: white;
+}
+.trending_wrapper {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 80%;
+  margin-left: 70px;
+  margin-right: 70px;
+  background-image: url("/src/images/matrix2jpg.webp");
+  background-size: cover;
+}
