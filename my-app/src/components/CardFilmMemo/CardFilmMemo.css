@@ -1,0 +1,24 @@
+.card {
+    display: block;
+    width: 150px;
+    margin-left: 30px;
+  }
+  .card h2 {
+    word-wrap: break-word;
+    height: 40px;
+    background-color: rgba(1, 1, 24, 0.801);
+    border-radius: 0 0 8px 8px;
+    padding: 8px 0 30px 8px;
+    margin-bottom: 30px;
+    font-size: 15px;
+    font-weight: bolder;
+    color: white;
+    text-decoration: none;
+    box-shadow: 0 1px 5px rgb(101, 103, 105);
+    display: block;
+  }
+  .card img {
+    width: 150px;
+    height: 200px;
+  }
+  
