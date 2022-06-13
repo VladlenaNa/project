@@ -3,8 +3,10 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./Films.css";
 import Genre from "../Genre/Genre";
-import { getFilteredMovies, getUpcomingMovies } from "../../App";
-import CardFilm from "../CardFilm/CardFilm";
+import { getFilteredMovies, getUpcomingMovies } from "../../API";
+import { Helmet } from 'react-helmet'
+import { MemoFilmCard } from "../CardFilmMemo/CardFilmMemo";
+
 export default function Films() {
   useEffect(() => {
     getUpcomingMovies().then((movies) => {
@@ -79,9 +81,14 @@ export default function Films() {
   const [filteredFilms, setFilteredFilms] = useState([]);
   const [popularFilms, setPopularFilms] = useState([]);
   const [sort, setSort] = useState("");
+ 
   return (
     <div>
+
       <div className="wrapper">
+      <Helmet>
+        <title>Films</title>
+      </Helmet>
         <Header />
         <div className="content_wrapper">
           <div className="left_panel">
@@ -155,10 +162,10 @@ export default function Films() {
           <div className="film_panel">
             <div className="cards_films">
               {popularFilms.map((movie) => {
-                return <CardFilm key={movie.id} movie={movie} />;
+                return <MemoFilmCard key={movie.id} movieKey={movie.id} moviePosterPath={movie.poster_path} movieTitle={movie.title} moviePlot={movie.overview} />;
               })}
               {filteredFilms.map((movie) => {
-                return <CardFilm key={movie.id} movie={movie} />;
+                return <MemoFilmCard key={movie.id} movieKey={movie.id} moviePosterPath={movie.poster_path} movieTitle={movie.title} moviePlot={movie.overview}/>;
               })}
             </div>
             <button onClick={loadFilms} className="load_films_button">

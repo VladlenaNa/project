@@ -3,10 +3,15 @@ import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import tmdbIcon from "../../images/sheldon.png";
 import "./TMDB.css";
+import { Helmet } from "react-helmet";
+
 export default function TMDB() {
   return (
     <div className="footer__tmdb">
       <Header />
+      <Helmet>
+        <title>About TMDB</title>
+      </Helmet>
       <div className="tmdb_content">
         <div className="info_tmdb">
           <h2> Hi there!</h2>

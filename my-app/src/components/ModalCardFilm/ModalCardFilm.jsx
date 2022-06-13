@@ -3,13 +3,13 @@ import "./ModalCardFilm.css";
 import logo from "../../images/logo.png";
 export default function ModalCardFilm(props) {
   let link;
-  if (props.movie.poster_path === null) link = logo;
-  else link = `https://image.tmdb.org/t/p/original/${props.movie.poster_path}`;
+  if (props.moviePosterPath === null) link = logo;
+  else link = `https://image.tmdb.org/t/p/original/${props.moviePosterPath}`;
   return (
     <div className="modalCard">
-      <h2>{props.movie.title || props.movie.name}</h2>
+      <h2>{props.movieTitle }</h2>
       <img src={link} alt=""></img>
-      <p>{props.movie.overview}</p>
+      <p>{props.moviePlot}</p>
     </div>
   );
 }

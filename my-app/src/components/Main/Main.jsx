@@ -3,12 +3,13 @@ import Header from "../Header/Header";
 import Search from "../Search/Search";
 import Footer from "../Footer/Footer";
 import "./Main.css";
-import { getPopularMovies } from "../../App";
+import { getPopularMovies } from "../../API";
+import { getUpcomingMovies } from "../../API";
 import PopularFilmsSection from "../PopularFilmsSection/PopularFilmsSection";
-import { getUpcomingMovies } from "../../App";
 import UpcomingFilmsSection from "../UpcomingFilmsSection/UpcomingFilmsSection";
-import { getTrendingMovies } from "../../App";
+import { getTrendingMovies } from "../../API";
 import TrendingFilmsSection from "../TrendingFilmsSection/TrendingFilmsSection";
+import { Helmet } from 'react-helmet'
 
 export default function Main() {
   const [popularMovies, setPopularMovies] = useState([]);
@@ -43,6 +44,9 @@ export default function Main() {
 
   return (
     <div className="main">
+      <Helmet>
+        <title>TMDB</title>
+      </Helmet>
       <Header />
       <Search />
       <PopularFilmsSection movies={popularMovies} />

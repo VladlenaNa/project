@@ -21,7 +21,7 @@ const Modal = (props) => {
           </button>
           <div className="modalContent">
             {props.foundFilms.map((movie) => {
-              return <ModalCardFilm key={movie.id} movie={movie} />;
+              return <ModalCardFilm key={movie.id} moviePosterPath={movie.poster_path} movieTitle={movie.title} moviePlot={movie.overview} />;
             })}
           </div>
           <div className="modalActions">

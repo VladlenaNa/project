@@ -3,10 +3,15 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./Contact.css";
 import FAQMenu from "../FAQMenu/FAQMenu";
+import { Helmet } from "react-helmet";
+
 export default function Contact() {
   return (
     <div>
       <Header />
+      <Helmet>
+        <title>Contact us</title>
+      </Helmet>
       <div className="wrapper_contact">
         <div className="contact_wrap">
           <div className="contact_content">

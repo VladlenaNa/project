@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <nav className="footer__content">
       <div className="footer__logo">
-        <img className="footer_logo" src={footer_logo} />
+        <img className="footer_logo" alt="" src={footer_logo} />
       </div>
       <div className="footer__company info">
         <h3>About TMDB</h3>

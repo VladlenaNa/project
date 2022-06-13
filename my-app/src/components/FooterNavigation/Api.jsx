@@ -3,15 +3,20 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./Guidelines.css";
 import FAQMenu from "../FAQMenu/FAQMenu";
+import { Helmet } from "react-helmet";
+
 export default function Api() {
   return (
     <div>
-      <div class="wrapper_bg_white">
+      <div className="wrapper_bg_white">
+      <Helmet>
+        <title>API</title>
+      </Helmet>
         <Header />
-        <div class="contact_wrap">
-          <div class="contact_content">
+        <div className="contact_wrap">
+          <div className="contact_content">
             <FAQMenu />
-            <div class="FAQ_column">
+            <div className="FAQ_column">
               <h2> Terms of Use</h2>
               <h2> API Overview</h2>
               <p>

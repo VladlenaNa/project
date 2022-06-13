@@ -3,15 +3,20 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./Guidelines.css";
 import FAQMenu from "../FAQMenu/FAQMenu";
+import { Helmet } from "react-helmet";
+
 export default function Guidelines() {
   return (
     <div>
-      <div class="wrapper_bg_white">
+      <div className="wrapper_bg_white">
         <Header />
-        <div class="contact_wrap">
-          <div class="contact_content">
+        <Helmet>
+          <title>Guidelines</title>
+        </Helmet>
+        <div className="contact_wrap">
+          <div className="contact_content">
             <FAQMenu />
-            <div class="FAQ_column">
+            <div className="FAQ_column">
               <h2> Community Guidelines on TMDB</h2>
               <h3>Things you should do...</h3>
               <p>

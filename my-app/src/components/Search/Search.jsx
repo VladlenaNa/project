@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import "./Search.css";
-import { searchMovie } from "../../App";
+import { searchMovie } from "../../API";
 import Modal from "../Modal/Modal";
 import searchIcon from "../../images/iconSearch.png";
 export default function Search() {

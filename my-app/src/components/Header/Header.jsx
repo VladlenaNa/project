@@ -8,7 +8,7 @@ export default function Header() {
       <div className="navigation">
         <Link to="/Main">
           {" "}
-          <img className="header__logo" src={logo} />{" "}
+          <img className="header__logo" alt="" src={logo} />{" "}
         </Link>
         <div className="buttons">
           <ul>
