@@ -1,6 +1,7 @@
 import React from "react";
-import CardFilm from "../CardFilm/CardFilm";
 import "./PopularFilmsSection.css";
+import { MemoFilmCard } from "../CardFilmMemo/CardFilmMemo";
+
 export default function PopularFilmsSection(props) {
   return (
     <div className="popular_wrapper">
@@ -9,7 +10,7 @@ export default function PopularFilmsSection(props) {
       </div>
       <div className="popular_content">
         {props.movies.map((movie) => {
-          return <CardFilm key={movie.id} movie={movie} />;
+          return <MemoFilmCard key={movie.id} movieKey={movie.id} moviePosterPath={movie.poster_path} movieTitle={movie.title} moviePlot={movie.overview} />;
         })}
       </div>
     </div>

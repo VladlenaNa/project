@@ -1,6 +1,7 @@
 import React from "react";
-import CardFilm from "../CardFilm/CardFilm";
 import "./TrendingFilmsSection.css";
+import { MemoFilmCard } from "../CardFilmMemo/CardFilmMemo";
+
 export default function TrendingFilmsSection(props) {
   return (
     <div className="trending_wrapper">
@@ -9,7 +10,7 @@ export default function TrendingFilmsSection(props) {
       </div>
       <div className="trending_content">
         {props.movies.map((movie) => {
-          return <CardFilm key={movie.id} movie={movie} />;
+          return <MemoFilmCard key={movie.id} movieKey={movie.id} moviePosterPath={movie.poster_path} movieTitle={movie.title} moviePlot={movie.overview} />;
         })}
       </div>
     </div>
