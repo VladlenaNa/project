@@ -2,15 +2,17 @@ import React from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import FAQMenu from "./FAQMenu";
+import "./General.css"
+
 export default function General() {
   return (
     <div>
-      <div className="wrapper_bg_white">
+      <div className="general">
         <Header />
-        <div className="contact_wrap">
-          <div className="contact_content">
+        <div className="general__wrapper">
+          <div className="general__content">
             <FAQMenu />
-            <div className="FAQ_column">
+            <div className="general__column">
               <h2> General FAQ</h2>
               <h3>Where did all of your data come from?</h3>
               <p>

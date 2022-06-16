@@ -7,13 +7,13 @@ import { Helmet } from "react-helmet";
 
 export default function TMDB() {
   return (
-    <div className="footer__tmdb">
+    <div className="tmdb">
       <Header />
       <Helmet>
         <title>About TMDB</title>
       </Helmet>
-      <div className="tmdb_content">
-        <div className="info_tmdb">
+      <div className="tmdb__content">
+        <div className="info-tmdb">
           <h2> Hi there!</h2>
           <p>
             international focus The Movie Database (TMDB) is a community built
@@ -26,7 +26,7 @@ export default function TMDB() {
         </div>
         <h4>The TMDB Advantage</h4>
         <div className="advantages">
-          <ul className="border_advantages">
+          <ul className="advantages__item">
             <li>
               Every year since 2008, the number of contributions to our database
               has increased. With over 400,000 developers and companies using
@@ -57,50 +57,50 @@ export default function TMDB() {
           </ul>
         </div>
       </div>
-      <div className="tmdb_stats">
-        <div className="tmdb_stats_content">
-          <div className="stats_info">
+      <div className="tmdb-stats">
+        <div className="tmdb-stats__content">
+          <div className="stats-info">
             <h2>Stats</h2>
             <p>We all love them! Here's a few that we find interesting</p>
-            <div className="numbers_staat">
-              <div className="card_staat">
-                <div className="round_staat">
+            <div className="numbers-staat">
+              <div className="tmdb-staat__item">
+                <div className="card">
                   <p>743,725</p>
                 </div>
                 <p>Movies</p>
               </div>
-              <div className="card_staat">
-                <div className="round_staat">
+              <div className="tmdb-staat__item">
+                <div className="card">
                   <p>128,140</p>
                 </div>
                 <p>TV Shows</p>
               </div>
-              <div className="card_staat">
-                <div className="round_staat">
+              <div className="tmdb-staat__item">
+                <div className="card">
                   <p>200,366</p>
                 </div>
                 <p>TV Seasons</p>
               </div>
-              <div className="card_staat">
-                <div className="round_staat">
+              <div className="tmdb-staat__item">
+                <div className="card">
                   <p>2,414,961</p>
                 </div>
                 <p>People</p>
               </div>
-              <div className="card_staat">
-                <div className="round_staat">
+              <div className="tmdb-staat__item">
+                <div className="card">
                   <p>3,319,384</p>
                 </div>
                 <p>Images</p>
               </div>
-              <div className="card_staat">
-                <div className="round_staat">
+              <div className="tmdb-staat__item">
+                <div className="card">
                   <p>386,573</p>
                 </div>
                 <p>Edits Last Week</p>
               </div>
-              <div className="card_staat">
-                <div className="round_staat">
+              <div className="tmdb-staat__item">
+                <div className="card">
                   <p>3,077,603</p>
                 </div>
                 <p>TV Episodes</p>

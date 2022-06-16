@@ -1,8 +1,7 @@
-.genre {
+.genre__active {
+  background-color: #01b4e4;
   color: white;
   text-decoration: none;
-  background-color: #0e121d;
-  border-radius: 5px;
   display: inline-flex;
   border: 1px solid #9e9e9e;
   border-radius: 14px;
@@ -11,3 +10,16 @@
   margin-top: 6px;
   font-size: 15px;
 }
+.genre {
+  color: white;
+  text-decoration: none;
+  background-color: #0e121d;
+  display: inline-flex;
+  border: 1px solid #9e9e9e;
+  border-radius: 14px;
+  padding: 8px 8px;
+  margin-left: 5px;
+  margin-top: 6px;
+  font-size: 15px;
+}
+

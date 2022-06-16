@@ -1,22 +1,22 @@
 import React from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
-import "./Guidelines.css";
+import "./Terms.css";
 import FAQMenu from "../FAQMenu/FAQMenu";
 import { Helmet } from "react-helmet";
 
 export default function Terms() {
   return (
     <div>
-      <div className="wrapper_bg_white">
+      <div className="terms">
         <Header />
         <Helmet>
           <title>Terms of use</title>
         </Helmet>
-        <div className="contact_wrap">
-          <div className="contact_content">
+        <div className="terms__wrapper">
+          <div className="terms__content">
             <FAQMenu />
-            <div className="FAQ_column">
+            <div className="terms__column">
               <h2> Terms of Use</h2>
               <h3>Things you should do...</h3>
               <p>

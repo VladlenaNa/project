@@ -1,4 +1,4 @@
-.wrapper_contact {
+.contact {
   background-color: rgb(255, 255, 255);
   width: 100%;
   height: auto;
@@ -8,17 +8,38 @@
   align-items: flex-start;
   justify-content: center;
 }
-.contact_wrap {
+.contact__wrapper {
   width: 100%;
   box-sizing: border-box;
   padding-left: 40px;
   padding-top: 30px;
   padding-right: 40px;
 }
-.contact_content {
+.contact__content {
   display: flex;
   align-items: flex-start;
   align-content: flex-start;
   justify-content: center;
   width: 100%;
+}
+.contact__column h2 {
+  color: black;
+}
+.contact__column h3 {
+  font-size: 16px;
+  color: black;
+  border-bottom: 1px solid rgb(201, 198, 198);
+  padding-bottom: 5px;
+}
+.contact__column h2 {
+  margin-top: 0;
+}
+.contact__column {
+  width: 100%;
+  margin-top: 0;
+  margin-left: 50px;
+}
+.contact__column p {
+  color: black;
+  font-size: 16px;
 }

@@ -1,4 +1,4 @@
-.upcoming_content {
+.upcoming__content {
   display: flex;
   overflow-x: scroll;
   align-content: center;
@@ -11,14 +11,14 @@
   padding: 0;
   margin-left: 30px;
 }
-.upcoming_content h2 {
+.upcoming__content h2 {
   color: white;
 }
-.upcoming_wrapper h2 {
+.upcoming-wrapper h2 {
   color: white;
   margin-top: 20px;
 }
-.upcoming_wrapper {
+.upcoming-wrapper {
   padding-bottom: 20px;
   width: 100%;
   height: auto;

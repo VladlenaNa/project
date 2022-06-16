@@ -6,26 +6,26 @@ const Modal = (props) => {
   return (
     <>
       <div
-        className="darkBG"
+        className="theme_darkBG"
         onClick={() => {
           props.setModal(false);
         }}
       />
       <div className="centered">
         <div className="modal">
-          <div className="modalHeader">
-            <h2 className="heading">Films</h2>
+          <div className="modal__header">
+            <h2 className="modal__title">Films</h2>
           </div>
-          <button className="closeBtn" onClick={() => props.setModal(false)}>
+          <button className="modal__button_close" onClick={() => props.setModal(false)}>
             <RiCloseLine style={{ marginBottom: "-3px" }} />
           </button>
-          <div className="modalContent">
+          <div className="modal__content">
             {props.foundFilms.map((movie) => {
               return <ModalCardFilm key={movie.id} moviePosterPath={movie.poster_path} movieTitle={movie.title} moviePlot={movie.overview} />;
             })}
           </div>
-          <div className="modalActions">
-            <div className="actionsContainer"></div>
+          <div className="modal__actions">
+            <div className="actions-container"></div>
           </div>
         </div>
       </div>

@@ -8,15 +8,15 @@ import { Helmet } from "react-helmet";
 export default function Guidelines() {
   return (
     <div>
-      <div className="wrapper_bg_white">
+      <div className="guidelines">
         <Header />
         <Helmet>
           <title>Guidelines</title>
         </Helmet>
-        <div className="contact_wrap">
-          <div className="contact_content">
+        <div className="guidelines__wrapper">
+          <div className="guidelines__content">
             <FAQMenu />
-            <div className="FAQ_column">
+            <div className="guidelines__column">
               <h2> Community Guidelines on TMDB</h2>
               <h3>Things you should do...</h3>
               <p>

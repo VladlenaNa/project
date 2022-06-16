@@ -1,4 +1,4 @@
-.menu_bar {
+.header {
   list-style-type: none;
   background-color: #050e24;
   width: 100%;
@@ -14,15 +14,6 @@
   justify-content: flex-start;
   align-items: center;
 }
-.nav {
-  display: flex;
-  justify-content: flex-end;
-}
-.nav ul {
-  display: flex;
-  flex-direction: row;
-  list-style: none;
-}
 .navigation ul {
   padding-left: 0;
   font-weight: 600;
@@ -30,19 +21,12 @@
   flex-direction: row;
   list-style: none;
 }
-.nav a {
-  text-decoration: none;
-  font-weight: 600;
-  color: white;
-  font-size: 24;
-  padding-right: 20px;
-}
 .navigation a {
   text-decoration: none;
   color: white;
   font-size: 24;
 }
-.buttons a {
+.header__buttons a {
   margin-left: 20px;
 }
 .header__logo {

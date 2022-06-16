@@ -7,6 +7,20 @@ import { getFilteredTVShows, getPopularTVShows } from "../../API";
 import { MemoFilmCard } from "../CardFilmMemo/CardFilmMemo";
 import { Helmet } from "react-helmet";
 
+const genres = [
+  { id: "10759", value: "Action&Adventure" },
+  { id: "16", value: "Animation" },
+  { id: "35", value: "Comedy" },
+  { id: "99", value: "Documentary" },
+  { id: "18", value: "Drama" },
+  { id: "10751", value: "Family" },
+  { id: "10762", value: "Kids" },
+  { id: "10763", value: "News" },
+  { id: "10764", value: "Reality" },
+  { id: "10767", value: "Talk" },
+  { id: "10768", value: "War&Politics" },
+  { id: "37", value: "Western" },
+];
 export default function TvShow() {
   useEffect(() => {
     getPopularTVShows().then((movies) => {
@@ -35,7 +49,7 @@ export default function TvShow() {
       "&primary_release_date.gte=" + dataGte,
       "&primary_release_date.lte=" + dataLte
     ).then((movies) => {
-      let tmp = filteredFilms.concat(movies);
+      const tmp = filteredFilms.concat(movies);
       setFilteredFilms(tmp);
     });
   }
@@ -53,20 +67,6 @@ export default function TvShow() {
     });
     setPage(1);
   }
-  let genres = [
-    { id: "10759", value: "Action&Adventure" },
-    { id: "16", value: "Animation" },
-    { id: "35", value: "Comedy" },
-    { id: "99", value: "Documentary" },
-    { id: "18", value: "Drama" },
-    { id: "10751", value: "Family" },
-    { id: "10762", value: "Kids" },
-    { id: "10763", value: "News" },
-    { id: "10764", value: "Reality" },
-    { id: "10767", value: "Talk" },
-    { id: "10768", value: "War&Politics" },
-    { id: "37", value: "Western" },
-  ];
   const [selectedGenre, setSelectedGenre] = useState([]);
   const [page, setPage] = useState(1);
   const [dataLte, setDataLte] = useState("");
@@ -76,18 +76,18 @@ export default function TvShow() {
   const [sort, setSort] = useState("");
   return (
     <div>
-      <div className="wrapper">
+      <div className="tv-wrapper">
       <Helmet>
         <title>TV Shows</title>
       </Helmet>
         <Header />
-        <div className="content_wrapper">
-          <div className="left_panel">
-            <div className="films_title">
+        <div className="tv-wrapper__content">
+          <div className="tv-panel">
+            <div className="tv-panel__title">
               <h2>TV Shows</h2>
             </div>
-            <div className="filter_panel">
-              <div className="sort_select">
+            <div className="filter-panel">
+              <div className="filter-panel__sort">
                 <select onChange={handleSubmitSort}>
                   <option id="popularity.desc" value="popularity.desc">
                     Popularity Descending
@@ -110,7 +110,7 @@ export default function TvShow() {
                   {/* <span className="arrow"></span> */}
                 </select>
               </div>
-              <div className="filter_genre">
+              <div className="filter-genre">
                 <h3>Genre</h3>
                 {genres.map(({ id, value }) => (
                   <Genre
@@ -123,7 +123,7 @@ export default function TvShow() {
                 ))}
               </div>
               <h3>Release Date</h3>
-              <div className="date_filter">
+              <div className="filter-date">
                 <p>from</p>
                 <input
                   onChange={handleSubmitDataGte}
@@ -134,7 +134,7 @@ export default function TvShow() {
                   pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
                 />
               </div>
-              <div className="date_filter">
+              <div className="filter-date">
                 <p>to</p>
                 <input
                   onChange={handleSubmitDataLte}
@@ -146,12 +146,12 @@ export default function TvShow() {
                 />
               </div>
             </div>
-            <button onClick={filterFilm} className="search_film_button">
+            <button onClick={filterFilm} className="search-tv-button">
               <h2>Search</h2>
             </button>
           </div>
-          <div className="film_panel">
-            <div className="cards_films">
+          <div className="tv">
+            <div className="tv__card">
               {popularFilms.map((movie) => {
                 return <MemoFilmCard key={movie.id} movieKey={movie.id} moviePosterPath={movie.poster_path} movieTitle={movie.name} moviePlot={movie.overview} />;
               })}
@@ -159,7 +159,7 @@ export default function TvShow() {
                 return <MemoFilmCard key={movie.id} movieKey={movie.id} moviePosterPath={movie.poster_path} movieTitle={movie.name} moviePlot={movie.overview} />;
               })}
             </div>
-            <button onClick={loadFilms} className="load_films_button">
+            <button onClick={loadFilms} className="load-tv-button">
               Load More
             </button>
           </div>

@@ -2,7 +2,7 @@ import React from "react";
 import "./NotFound.css"
 import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
-export default function TrendingFilmsSection(props) {
+export default function TrendingFilmsSection() {
   return (
     <div className="content">
       <Helmet>

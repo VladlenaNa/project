@@ -12,11 +12,11 @@ export default function Contact() {
       <Helmet>
         <title>Contact us</title>
       </Helmet>
-      <div className="wrapper_contact">
-        <div className="contact_wrap">
-          <div className="contact_content">
+      <div className="contact">
+        <div className="contact__wrapper">
+          <div className="contact__content">
             <FAQMenu />
-            <div className="FAQ_column">
+            <div className="contact__column">
               <h2> Website FAQ</h2>
               <h3>How I can contact TMDB?</h3>
               <p>You can find our contact links here</p>

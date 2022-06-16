@@ -1,4 +1,4 @@
-.footer__tmdb {
+.tmdb {
   background-color: rgb(14, 18, 29);
   width: 100%;
   height: auto;
@@ -8,13 +8,13 @@
   align-items: flex-start;
   justify-content: center;
 }
-.info_tmdb h2,
+.info-tmdb h2,
 h4 {
   color: white;
   font-size: 30px;
   text-align: center;
 }
-.info_tmdb p {
+.info-tmdb p {
   color: white;
   font-size: 20px;
 }
@@ -27,13 +27,13 @@ h4 {
   margin-top: 20px;
   text-align: center;
 }
-.info_tmdb {
+.info-tmdb {
   padding: 30px;
   width: 800px;
   margin: 0 auto;
   text-align: center;
 }
-.border_advantages li {
+.advantages__item li {
   list-style: none;
   padding: 8px 20px;
   margin-bottom: 10px;
@@ -46,20 +46,20 @@ h4 {
   letter-spacing: 1px;
   transition: 0.2s all linear;
 }
-.tmdb_stats_content {
+.tmdb-stats__content {
   display: flex;
   margin-left: 60px;
 }
 
-.tmdb_stats_content p {
+.tmdb-stats__content p {
   color: white;
 }
-.tmdb_stats_content h2 {
+.tmdb-stats__content h2 {
   color: white;
   margin-bottom: 0;
   font-size: 30px;
 }
-.tmdb_stats {
+.tmdb-stats {
   margin-top: 40px;
   margin-bottom: 80px;
   padding: 0 60px;
@@ -69,36 +69,36 @@ h4 {
   justify-content: flex-start;
   background-color: rgba(50, 48, 136, 0.445);
 }
-.numbers_staat {
+.numbers-staat {
   width: 600px;
   display: flex;
   flex-wrap: wrap;
 }
-.numbers_staat p {
+.numbers-staat p {
   color: white;
 }
-.round_staat {
+.card {
   background-color: #253c91;
   width: 100px;
   height: 100px;
   border-radius: 50px;
   text-align: center;
 }
-.round_staat p {
+.card p {
   color: white;
   text-align: center;
   vertical-align: middle;
   font-size: 14px;
   padding-top: 38px;
 }
-.card_staat {
+.tmdb-staat__item {
   padding-right: 30px;
   text-align: center;
 }
-.round_staat p {
+.card p {
   font-weight: bold;
 }
-.tmdb_stats_content p {
+.tmdb-stats__content p {
   margin-top: 5px;
   font-size: 16px;
 }

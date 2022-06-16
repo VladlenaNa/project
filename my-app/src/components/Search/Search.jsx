@@ -6,8 +6,8 @@ import searchIcon from "../../images/iconSearch.png";
 export default function Search() {
   const [keyword, setKeyWord] = useState("");
   const [foundFilms, setFoundFilms] = useState([]);
-  const [isModal, setModal] = React.useState(false);
-  function get_title(event) {
+  const [isModal, setModal] = useState(false);
+  function getTitle(event) {
     event.preventDefault();
     setKeyWord(event.target.value);
   }
@@ -19,23 +19,23 @@ export default function Search() {
     });
   }
   return (
-    <div className="search_section">
-      <div className="search_content">
+    <div className="search-section">
+      <div className="search-section__content">
         <h2>Welcome</h2>
         <h3>
           Millions of movies, TV shows to discover. Explore now and enjoy!
         </h3>
-        <form className="search_form" action="" method="get">
+        <form className="search-form" onSubmit={handleSubmit} action="" method="get">
           <input
-            className="input_name"
+            className="search-form__input"
             value={keyword}
-            onChange={get_title}
+            onChange={getTitle}
             name="s"
             placeholder="Enter name..."
           />
           <img
             onClick={handleSubmit}
-            className="search_button"
+            className="search-form__button"
             src={searchIcon}
             alt=""
           ></img>

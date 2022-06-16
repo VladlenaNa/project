@@ -1,21 +1,4 @@
-.primaryBtn {
-  margin: 20px 10px;
-  cursor: pointer;
-  font-weight: 500;
-  padding: 13px 25px;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  border: none;
-  color: white;
-  background: #185adb;
-  transition: all 0.25s ease;
-}
-
-.primaryBtn:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px -10px rgba(24, 90, 219, 0.6);
-}
-.darkBG {
+.theme_darkBG {
   background-color: rgba(194, 187, 187, 0.068);
   width: 100%;
   height: 100%;
@@ -46,14 +29,14 @@
   justify-content: center;
 }
 
-.modalHeader {
+.modal__header {
   height: 20px;
   background: rgba(1, 1, 26, 0.938);
   color: white;
   margin: 10px 10px;
 }
 
-.modalContent {
+.modal__content {
   font-size: 14px;
   color: #051b31;
   overflow-y: scroll;
@@ -63,20 +46,20 @@
   margin-top: 20px;
 }
 
-.modalActions {
+.modal__actions {
   position: absolute;
   bottom: 2px;
   margin-bottom: 10px;
   width: 100%;
 }
 
-.actionsContainer {
+.actions-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.closeBtn {
+.modal__button_close {
   cursor: pointer;
   font-weight: 500;
   padding: 4px 8px;

@@ -4,13 +4,13 @@ import "./Header.css";
 import logo from "../../images/logo.png";
 export default function Header() {
   return (
-    <div className="menu_bar">
+    <div className="header">
       <div className="navigation">
         <Link to="/Main">
           {" "}
           <img className="header__logo" alt="" src={logo} />{" "}
         </Link>
-        <div className="buttons">
+        <div className="header__buttons">
           <ul>
             <li>
               <Link to="/Films">Films</Link>
