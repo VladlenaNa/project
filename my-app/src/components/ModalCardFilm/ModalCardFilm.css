@@ -1,0 +1,31 @@
+.modalCard {
+  display: block;
+}
+.modalCard h2 {
+  word-wrap: break-word;
+  height: 40px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+  display: block;
+}
+.modalCard img {
+  width: 150px;
+  height: 200px;
+}
+.modalCard img {
+  width: 150px;
+  height: 200px;
+}
+.modalCard img {
+  float: left;
+  margin-right: 30px;
+  border-radius: 3px;
+}
+.modalCard p {
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-family: "Source Sans Pro", Arial, sans-serif;
+}

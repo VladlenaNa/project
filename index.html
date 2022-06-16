@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>TMDB</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+    <body>
+        
+        <div class="wrapper">
+            <div class="menu_bar">
+                <div class="navigation">
+                    <a href="index.html"><img src="img/logo.png" alt="" width=90 height=80></a>
+                    <div class="buttons">
+                        <ul>
+                            <li><a href="films.html">Films</a></li>
+                            <li><a href="serials.html">TV shows</a></li>
+                            <li><a href="people.html">People</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a href="sign_in.html">Sign in</a></li>
+                        <li><a href="sign_up.html">Sign up</a></li>
+                    </ul>
+                </div>
+        </div>
+        <div class="search_section">
+                    <div class="search_content">
+                        <h2>Welcome</h2>
+                        <h3>Millions of movies, TV shows to discover. Explore now and enjoy!</h3>
+                        <form class="search_form" action="" method="get">
+                            <input class="input_name" name="s" placeholder="Enter name...">
+                            <button class="search_button" type="button"><i class="fa fa-search"></i></button>
+                        </form>
+                    </div>
+                    
+            </div>
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                </div>
+            </div>
+            <div id="films_modal" class="films_modal" style="display: none;">
+                <div class="films_modal_header">
+                    <span class="films_modal_close">&times;</span>
+                </div>
+                <div class="films_modal_content"></div>
+            </div>
+            <div class="popular_wrapper">
+                <div class="popular_header">
+                    <h2>What's Popular</h2>
+                    
+                </div>
+                <div class="popular_content">
+                    
+                </div>
+                <div class="line"></div>
+                <div class="cinema_wrapper">
+                    <div class="cinema_header popular_header">
+                        <h2>Upcoming</h2>
+                    </div>
+                    <div class="cinema_content">
+                    </div>
+                </div>
+            
+        </div>
+        <div class="recent_trailers">
+            <div class="recent_trailers_header">
+                <h2>Trending</h2>
+            </div>
+                <div class="trailers_content">
+                    
+                </div>
+        </div>
+        </div>
+        <footer class="footer">
+            <nav class="footer__content">
+                <div class="footer__logo">
+                    <a href="#"><img src="img/footer__logo.png" alt="" width="150" height="100"></a>
+                </div>
+                <div class="footer__company info">
+                    <h3>About TMDB</h3>
+                    <ul>
+                        <li><a href="tmdb.html">TMDB</a></li>
+                        <li><a href="FAQ_contact.html">Contact us</a></li>
+                    </ul>
+                </div>
+                <div class="footer__community info">
+                <h3>Community</h3>
+                <ul>
+                    <li><a href="leadership.html">Guidelines</a></li>
+                    <li><a href="https://mobile.twitter.com/themoviedb">Twitter</a></li>
+                </ul>
+                </div>
+                <div class="footer__rules info">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="terms_use.html">Terms of use</a></li>
+                        <li><a href="FAQ_API_Overview.html">API</a></li>
+                    </ul>
+                </div>
+                <div class="button_join">
+                    <a href="sign_up.html">
+                        Join the community
+                    </a>
+                </div>
+            </nav>
+        </footer>
+        <script src="Api.js"></script>
+        <script src="details.js"></script>
+    </body>
+</html>

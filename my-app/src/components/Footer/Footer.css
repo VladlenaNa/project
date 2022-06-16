@@ -1,0 +1,78 @@
+.footer__content {
+  box-sizing: border-box;
+  display: flex;
+  position: absolute;
+  max-width: 100%;
+  width: 100vw;
+  justify-content: center;
+  height: 200px;
+  bottom: 0;
+  left: 0;
+  padding: 20px;
+  align-items: center;
+  align-content: space-between;
+  background-color: #080d1d;
+  color: rgb(255, 255, 255);
+}
+.footer_logo {
+  margin-right: 20px;
+  width: 150px;
+  height: 100px;
+}
+.footer__content {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  padding-bottom: 20px;
+  background-color: #080d1d;
+}
+.info {
+  margin-right: 40px;
+  display: block;
+  min-width: 0;
+}
+.info h3 {
+  font-weight: bold;
+  margin: 0;
+  font-size: 1em;
+  padding: 0;
+  text-transform: uppercase;
+  color: rgb(255, 255, 255);
+  box-sizing: border-box;
+}
+.info ul {
+  display: block;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.info li {
+  display: list-item;
+  line-height: 1.4em;
+  text-align: match-parent;
+  list-style: none;
+}
+.info a {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: normal;
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+.button_join {
+  margin-top: 15px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 8px;
+  width: 200px;
+  padding: 12px;
+  height: 25px;
+  white-space: normal;
+  text-align: center;
+}
+.button_join a {
+  text-decoration: none;
+  font-weight: bold;
+  white-space: normal;
+  font-size: 1.2em;
+  color: #000000;
+}
